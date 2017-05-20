@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block content %}
+<script type="text/javascript" src="{% static "js/Chart.bundle.min.js" %}"></script>
+
+<div id="content-main">
+    {{ admin_chart.as_html }}
+</div>
+{% endblock %}

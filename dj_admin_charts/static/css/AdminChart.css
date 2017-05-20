@@ -1,0 +1,76 @@
+.disabled {
+    color: darkgray !important;
+}
+
+.settings_group {
+    padding-left: 20px;
+}
+
+.colorpicker {
+}
+
+.config_group {
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    font-size: 14px;
+    margin: .8em 0 .3em 0;
+    color: #666;
+    font-weight: bold;
+}
+
+.config_group .arrow {
+    display: none;
+}
+
+.config_group .arrow + label{
+    background:url('../img/arrow-down.png') no-repeat;
+    width: 22px;
+    height: 20px;
+    position: absolute;
+    display:inline-block;
+    padding: 0 0 0 0;
+    margin-left: 15px;
+}
+
+.config_group .arrow:checked + label{
+    background:url('../img/arrow-up.png') no-repeat;
+    width: 22px;
+    height: 20px;
+    position: absolute;
+    display:inline-block;
+    padding: 0 0 0 0;
+    margin-left: 15px;
+}
+
+.entry_list, .entry_list div > ul{
+    margin-left: 20px !important;
+}
+
+.entry_list li > div{
+    padding-top: 10px;
+    display: flex;
+}
+
+.entry_list a {
+    border-radius: 15px;
+}
+
+.entry_list a:link, .entry_list a:visited, .entry_list a:focus, .entry_list a:hover {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: #999;
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.entry_list a.addlink {
+    background-repeat: no-repeat;
+    background-position: 93% center;
+    padding-right: 26px;
+    background-image: url(../admin/img/tooltag-add.svg);
+}

@@ -1,0 +1,8 @@
+<input type='text' name="{{ name }}" id="{{ attrs.id }}" class='colorpicker'/>
+<script>
+var spect = $("#{{ attrs.id }}").spectrum({
+        {% for key, value in attrs.options.items %}
+            "{{ key }}": {{ value }},
+        {% endfor %}
+});
+</script>

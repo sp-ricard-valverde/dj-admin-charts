@@ -1,0 +1,86 @@
+{% load chart %}
+
+<fieldset class="module aligned {{ fieldset.classes }}">
+    {% if fieldset.name %}<h2>{{ fieldset.name }}</h2>{% endif %}
+    {% if fieldset.description %}
+        <div class="description">{{ fieldset.description|safe }}</div>
+    {% endif %}
+
+    {% map_fields fieldset as fieldset_map %}
+
+    <div class="config_group">Datasets<input type="checkbox" class="arrow" id="dsc"
+                                             onclick="OnToggleConfigGroup(this.checked, this.id)"/><label
+            for="dsc"></label></div>
+
+    <div id="dsc_group">
+        <ul id="datasets_list" class="entry_list">
+            {#            New datasets will be inserted here#}
+            <li>
+                {% with line=fieldset_map.dataset_form %}{% include "admin/chart_field.html" %}{% endwith %}
+            </li>
+            <li class="add_entry">
+                <div><a href="/admin/trabu/unityversion/add/" class="addlink">Add new dataset</a></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="config_group">Global Options<input type="checkbox" class="arrow" id="goc"
+                                                   onclick="OnToggleConfigGroup(this.checked, this.id)"/><label
+            for="goc"></label></div>
+
+    <div id="goc_group">
+        <h3>Common</h3>
+        <div id="common_group" class="settings_group">
+            {% with line=fieldset_map.config_responsive %}{% include "admin/chart_field.html" %}{% endwith %}
+            {% with line=fieldset_map.config_responsiveAnimationDuration %}
+                {% include "admin/chart_field.html" %}{% endwith %}
+            {% with line=fieldset_map.config_maintainAspectRatio %}{% include "admin/chart_field.html" %}{% endwith %}
+        </div>
+
+        <br>
+        <h3>Title</h3>
+        <div id="title_group" class="settings_group">
+            {% with line=fieldset_map.title_display %}{% include "admin/chart_field.html" %}{% endwith %}
+            <div id="title_sub_group">
+                {% with line=fieldset_map.title_position %}{% include "admin/chart_field.html" %}{% endwith %}
+                {% with line=fieldset_map.title_text %}{% include "admin/chart_field.html" %}{% endwith %}
+            </div>
+        </div>
+
+        <br>
+        <h3>Legend</h3>
+        <div id="legend_group" class="settings_group">
+            {% with line=fieldset_map.legend_display %}{% include "admin/chart_field.html" %}{% endwith %}
+            <div id="legend_sub_group">
+                {% with line=fieldset_map.legend_position %}{% include "admin/chart_field.html" %}{% endwith %}
+            </div>
+        </div>
+
+        <br>
+        <h3>Tooltip</h3>
+        <div id="tooltip_group" class="settings_group">
+            {% with line=fieldset_map.tooltip_enabled %}{% include "admin/chart_field.html" %}{% endwith %}
+            <div id="tooltip_sub_group">
+                {% with line=fieldset_map.tooltip_mode %}{% include "admin/chart_field.html" %}{% endwith %}
+                {% with line=fieldset_map.tooltip_intersect %}{% include "admin/chart_field.html" %}{% endwith %}
+                {% with line=fieldset_map.tooltip_position %}{% include "admin/chart_field.html" %}{% endwith %}
+                {% with line=fieldset_map.tooltip_backgroundColor %}{% include "admin/chart_field.html" %}{% endwith %}
+            </div>
+        </div>
+
+        <br>
+        <h3>Hover</h3>
+        <div id="hover_group" class="settings_group">
+            {% with line=fieldset_map.hover_mode %}{% include "admin/chart_field.html" %}{% endwith %}
+            {% with line=fieldset_map.hover_intersect %}{% include "admin/chart_field.html" %}{% endwith %}
+            {% with line=fieldset_map.hover_animationDuration %}{% include "admin/chart_field.html" %}{% endwith %}
+        </div>
+
+        <br>
+        <h3>Animation</h3>
+        <div id="hover_group" class="settings_group">
+            {% with line=fieldset_map.animation_duration %}{% include "admin/chart_field.html" %}{% endwith %}
+            {% with line=fieldset_map.animation_easing %}{% include "admin/chart_field.html" %}{% endwith %}
+        </div>
+    </div>
+</fieldset>
